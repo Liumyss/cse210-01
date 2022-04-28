@@ -17,6 +17,9 @@ namespace cse210_01
             Console.Write("Hello People!");
 
             Console.WriteLine("Yes");
+            Console.WriteLine("Yes");
+            Console.WriteLine("Yes");
+            Console.WriteLine("Yes");
         }
     }
 }
