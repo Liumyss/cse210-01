@@ -5,6 +5,8 @@
 */
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace cse210_01
 {
@@ -13,13 +15,36 @@ namespace cse210_01
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.Write("Hello People!");
+            string player = nextPlayer("");
+             
+        }
 
-            Console.WriteLine("Yes");
-            Console.WriteLine("Yes");
-            Console.WriteLine("Yes");
-            Console.WriteLine("Yes");
+        int createBoard()
+        {   
+            List<int> board = new List<int>();
+            
+            foreach (int value in Enumerable.Range(1, 9))
+            {
+                board.Add(value + 1);
+            }
+
+            return board;
+        }
+
+        string nextPlayer(current)
+        {   
+            value = ""
+
+            if(current == "" || current == "o")
+            {
+                string value = "x";
+            }
+            else if(current == "x")
+            {
+                string value = "o"
+            }
+
+            return value;
         }
     }
 }
