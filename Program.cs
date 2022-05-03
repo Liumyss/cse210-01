@@ -12,13 +12,22 @@ namespace cse210_01
     
     {
         static void Main(string[] args)
-        {
-            startGame(1);
-            drawGameBoard();
+        {   
+            int currentPlayer = -1;
 
-            string userInput = Console.ReadLine();
+            do 
+            {   
+                currentPlayer = nextPlayer(currentPlayer);
 
-            Console.Clear();
+                startGame(currentPlayer);
+                drawGameBoard();
+
+                string userInput = Console.ReadLine();
+
+                Console.Clear();
+
+
+            } while (true);
 
         }
 
@@ -30,7 +39,7 @@ namespace cse210_01
             Console.WriteLine("Player 2: O");
             Console.WriteLine("");
 
-            Console.WriteLine("Player {x} to move, select 1 through 9 from the game board");
+            Console.WriteLine($"Player {playerNumber} to move, select 1 through 9 from the game board");
             Console.WriteLine("");
         }
 
@@ -42,6 +51,16 @@ namespace cse210_01
             Console.WriteLine("---+---+---");
             Console.WriteLine(" 7 | 8 | 9 ");
             Console.WriteLine("---+---+---");
+        }
+
+        static int nextPlayer(int player)
+        {
+            if (player.Equals(1))
+            {
+                return 2;
+            }
+
+            return 1;
         }
     }
 }
