@@ -76,7 +76,8 @@ namespace cse210_01
         }
 
         private static bool isDraw(char[] gameMarkers)
-        {
+        {   
+            /* Check if all game markers are replaced by "O" or "X" */
             return gameMarkers[0] != '1' &&
                    gameMarkers[1] != '2' &&
                    gameMarkers[2] != '3' &&
@@ -89,7 +90,8 @@ namespace cse210_01
         }
 
         private static bool hasWinner(char[] gameMarkers)
-        {
+        {   
+            /* Check the different winning positions of the markers */
              if (IsGameMarkersTheSame(gameMarkers, 0, 1, 2))
             {
                 return true;
