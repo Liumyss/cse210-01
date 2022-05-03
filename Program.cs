@@ -14,13 +14,14 @@ namespace cse210_01
         static void Main(string[] args)
         {   
             int currentPlayer = -1;
+            char[] gameMarkers = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
             do 
             {   
                 currentPlayer = nextPlayer(currentPlayer);
 
                 startGame(currentPlayer);
-                drawGameBoard();
+                drawGameBoard(gameMarkers);
 
                 string userInput = Console.ReadLine();
 
@@ -43,13 +44,13 @@ namespace cse210_01
             Console.WriteLine("");
         }
 
-        static void drawGameBoard()
+        static void drawGameBoard(char[] gameMarkers)
         {
-            Console.WriteLine(" 1 | 2 | 3");
+            Console.WriteLine($" {gameMarkers[0]} | {gameMarkers[1]} | {gameMarkers[2]}");
             Console.WriteLine("---+---+---");
-            Console.WriteLine(" 4 | 5 | 6 ");
+            Console.WriteLine($" {gameMarkers[3]} | {gameMarkers[4]} | {gameMarkers[5]} ");
             Console.WriteLine("---+---+---");
-            Console.WriteLine(" 7 | 8 | 9 ");
+            Console.WriteLine($" {gameMarkers[6]} | {gameMarkers[7]} | {gameMarkers[8]} ");
             Console.WriteLine("---+---+---");
         }
 
