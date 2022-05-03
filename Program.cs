@@ -24,9 +24,9 @@ namespace cse210_01
                 currentPlayer = nextPlayer(currentPlayer);
 
                 startGame(currentPlayer);
-                drawGameBoard(gameMarkers);
+                displayBoard(gameMarkers);
 
-                gameEngine(gameMarkers, currentPlayer);
+                makeMove(gameMarkers, currentPlayer);
 
                 gameStatus = checkWinner(gameMarkers);
 
@@ -34,7 +34,7 @@ namespace cse210_01
 
             Console.Clear();
             startGame(currentPlayer);
-            drawGameBoard(gameMarkers);
+            displayBoard(gameMarkers);
 
             if (gameStatus.Equals(1))
             {
@@ -125,7 +125,7 @@ namespace cse210_01
             return testGameMarkers[pos1].Equals(testGameMarkers[pos2]) && testGameMarkers[pos2].Equals(testGameMarkers[pos3]);
         }
 
-        private static void gameEngine(char[] gameMarkers, int currentPlayer)
+        private static void makeMove(char[] gameMarkers, int currentPlayer)
         {   
             bool notValidMove = true;
 
@@ -185,7 +185,7 @@ namespace cse210_01
             Console.WriteLine("");
         }
 
-        static void drawGameBoard(char[] gameMarkers)
+        static void displayBoard(char[] gameMarkers)
         {
             Console.WriteLine($" {gameMarkers[0]} | {gameMarkers[1]} | {gameMarkers[2]}");
             Console.WriteLine("---+---+---");
