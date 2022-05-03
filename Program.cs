@@ -13,21 +13,29 @@ namespace cse210_01
     {
         static void Main(string[] args)
         {   
+            /* Game variables */
             int gameStatus = 0;
             int currentPlayer = -1;
             char[] gameMarkers = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
+            /* Start of the game loop */
             do 
             {   
                 Console.Clear();
 
+                /* initial player */
                 currentPlayer = nextPlayer(currentPlayer);
 
+                /* Instructions */
                 startGame(currentPlayer);
+
+                /* create the board */
                 displayBoard(gameMarkers);
 
+                /* The player choose which number he wants to put "x" or "o" */
                 makeMove(gameMarkers, currentPlayer);
 
+                /* Check if there is a win or a draw */
                 gameStatus = checkWinner(gameMarkers);
 
             } while (gameStatus.Equals(0));
@@ -36,6 +44,9 @@ namespace cse210_01
             startGame(currentPlayer);
             displayBoard(gameMarkers);
 
+            Console.WriteLine("");
+
+            /* ENDING MESSAGE */
             if (gameStatus.Equals(1))
             {
                 Console.WriteLine($"Player {currentPlayer} is the winner!");
@@ -45,16 +56,18 @@ namespace cse210_01
             {
                 Console.WriteLine("The game is a draw");
             }
+
+            Console.WriteLine("Thanks for playing!");
         }
 
         private static int checkWinner(char[] gameMarkers)
         {
-            if (isGameWinner(gameMarkers))
+            if (hasWinner(gameMarkers))
             {
                 return 1;
             }
 
-            if (isGameDraw(gameMarkers))
+            if (isDraw(gameMarkers))
             {
                 return 2;
             }
@@ -62,7 +75,7 @@ namespace cse210_01
             return 0;
         }
 
-        private static bool isGameDraw(char[] gameMarkers)
+        private static bool isDraw(char[] gameMarkers)
         {
             return gameMarkers[0] != '1' &&
                    gameMarkers[1] != '2' &&
@@ -75,7 +88,7 @@ namespace cse210_01
                    gameMarkers[8] != '9';
         }
 
-        private static bool isGameWinner(char[] gameMarkers)
+        private static bool hasWinner(char[] gameMarkers)
         {
              if (IsGameMarkersTheSame(gameMarkers, 0, 1, 2))
             {
@@ -176,7 +189,8 @@ namespace cse210_01
         static void startGame(int playerNumber)
         {
             Console.WriteLine("Welcome to the TicTacToe Game!");
-
+            Console.WriteLine("");
+            
             Console.WriteLine("Player 1: X");
             Console.WriteLine("Player 2: O");
             Console.WriteLine("");
